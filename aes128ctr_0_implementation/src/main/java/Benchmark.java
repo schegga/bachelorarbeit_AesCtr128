@@ -18,11 +18,11 @@ public class Benchmark {
             // Choose the file you want to encrypt from the folder: 0_testdateien/0_input
             String fileName = "input_10000KB.txt";
 
-            String currentPath = Paths.get("").toAbsolutePath().toString();          
-            Path inputPath = Paths.get(currentPath + "/../aes128ctr_1_testdateien_benchmark/0_input", fileName);
-            Path outputPathSequential = Paths.get(currentPath + "/../aes128ctr_1_testdateien_benchmark/1_encrypt/", fileName.replace("input", "output_sequential"));
-            Path outputPathParallel = Paths.get(currentPath + "/../aes128ctr_1_testdateien_benchmark/1_encrypt/", fileName.replace("input", "output_parallel"));
-            Path outputPathJavax = Paths.get(currentPath + "/../aes128ctr_1_testdateien_benchmark/1_encrypt/", fileName.replace("input", "output_javax"));
+            String projectRoothPath = System.getProperty("user.dir");       
+            Path inputPath = Paths.get(projectRoothPath + "/../aes128ctr_1_testdateien_benchmark/0_input", fileName);
+            Path outputPathSequential = Paths.get(projectRoothPath + "/../aes128ctr_1_testdateien_benchmark/1_encrypt/", fileName.replace("input", "output_sequential"));
+            Path outputPathParallel = Paths.get(projectRoothPath + "/../aes128ctr_1_testdateien_benchmark/1_encrypt/", fileName.replace("input", "output_parallel"));
+            Path outputPathJavax = Paths.get(projectRoothPath + "/../aes128ctr_1_testdateien_benchmark/1_encrypt/", fileName.replace("input", "output_javax"));
 
             // Initialize CtrAes128
             CtrAes128 ctrAes128 = new CtrAes128();
