@@ -39,7 +39,7 @@ public class Benchmark {
 
             // WarmUp - Encryption: Get System Ready for Benchmarktests (this time will not be measured)
             // Path for warming up
-            Path inputWarmUpPath = Paths.get("/Users/bastianzahn/Desktop/ba_Implementierung_AES/0_testdateien/0_input/input_10000KB.txt");
+            Path inputWarmUpPath = Paths.get(projectRoothPath + "/../aes128ctr_1_testdateien_benchmark/0_input/input_10000KB.txt");
             byte[] plaintext = Files.readAllBytes(inputWarmUpPath);
             for(int i = 0; i < 5; i++){
                 ctrAes128.ctrAes128EncryptionParallel(plaintext, aesKey128, nonce, 8);

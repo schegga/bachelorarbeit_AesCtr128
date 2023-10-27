@@ -3,7 +3,8 @@
 ## Bachelorarbeit: Implementierung und Analyse des AES-CTR-128 Verfahrens
 
 ### Ordner `aes128ctr_0_implementation`:
-
+Für die Implemetation wurde das Build-Tool Gradle verwendet. Es muss eine Java-Version am ausführenden System installiert sein. Es wird zur Ausführung die Java-Version verwendet, auf welche die JAVA_HOME Variable des ausführenden Systems zeigt.
+Nachdem klonen des Repos gradle builden: Dazu das Terminal im Ordner `aes128ctr_0_implementation` öffnen und `./gradlew build`(unix) oder `gradle build`(windows) ausführen.
 - **AesBlockCipher.java**: 
   - Führt die Verschlüsselung eines 16 Byte großen Input-Blocks durch.
   - Generiert Rundenschlüssel mittels `public int[] expandKey128(byte[] key)`.
@@ -19,12 +20,14 @@
 
 - **AesKey128.java**: 
   - Dient dazu, sicherzustellen, dass nur Schlüssel der Länge 128-bit als Eingabe für die `ctrVerschlüsselungsfunktionen` in `CtrAes128.java` verwendet werden können.
-  - Die korrekte Funktionsweise wurde in `test/java/aes/utils/AesKeyTest.java` validiert mittels geeigneter Testparameter.
+  - Die korrekte Funktionsweise wurde in `test/java/aes/utils/AesKeyTest.java` validiert mittels geeigneter Testparameter. 
 
 - **Benchmark.java**: 
   - Testet die sequentielle und parallele Implementierung und vergleicht sie mit der äquivalenten Aes128Ctr-Verschlüsselung, die durch die `javax.crypto`-Standardbibliothek bereitgestellt wird.
-  - Kann mittels `./gradlew benchmark` ausgeführt werden. Dazu das Terminal im Ordner `aes128ctr_0_implementation` öffnen. Es wird zur Ausführung die Java-Version verwendet, auf welche die JAVA_HOME Variable des ausführenden Systems zeigt.
+  - Kann mittels `./gradlew benchmark`(unix) oder `gradle benchmark`(windows)  ausgeführt werden. Dazu das Terminal im Ordner `aes128ctr_0_implementation` öffnen. (Es wird zur Ausführung die Java-Version verwendet, auf welche die JAVA_HOME Variable des ausführenden Systems zeigt.)
   - Innerhalb dieser Klasse werden Testdateien eingelesen aus dem Ordner `aes128ctr_1_testdateien_benchmark/0_input`. Die Variable `String fileName = "input_10000KB.txt";` kann hier geändert werden, um die entsprechende Datei aus diesem `0_input` Ordner auszuwählen. Es können in dieser Datei auch die Anzahl der auszuführenden Verschlüsselungen für die sequentielle, parallele und `javax` Implementierung in der jeweiligen `for`-Schleife angepasst werden. Es wird die Zeit gemessen für jede Verschlüsselung, und der Mittelwert wird berechnet und ausgegeben. Die verschlüsselten Dateien werden in `aes128ctr_1_testdateien_benchmark/1_encrypt` gespeichert.
+
+Alle Tests können mit `./gradlew test`(unix) oder `gradle test`(windows) ausgeführt werden. Dazu das Terminal im Ordner `aes128ctr_0_implementation` öffnen. Es wird zur Ausführung die Java-Version verwendet, auf welche die JAVA_HOME Variable des ausführenden Systems zeigt. Ein Testbericht findet sich in `aes128ctr_0_implementation/build/reports/tests/test/index.html`.
 
 ### Ordner `aes128ctr_1_testdateien_benchmark`:
 
