@@ -23,7 +23,7 @@
 
 - **Benchmark.java**: 
   - Testet die sequentielle und parallele Implementierung und vergleicht sie mit der äquivalenten Aes128Ctr-Verschlüsselung, die durch die `javax.crypto`-Standardbibliothek bereitgestellt wird.
-  - Kann mittels `./gradlew benchmark` ausgeführt werden. Dazu das Terminal im Ordner `aes128ctr_0_implementation` öffnen.
+  - Kann mittels `./gradlew benchmark` ausgeführt werden. Dazu das Terminal im Ordner `aes128ctr_0_implementation` öffnen. Es wird zur Ausführung die Java-Version verwendet, auf welche die JAVA_HOME Variable des ausführenden Systems zeigt.
   - Innerhalb dieser Klasse werden Testdateien eingelesen aus dem Ordner `aes128ctr_1_testdateien_benchmark/0_input`. Die Variable `String fileName = "input_10000KB.txt";` kann hier geändert werden, um die entsprechende Datei aus diesem `0_input` Ordner auszuwählen. Es können in dieser Datei auch die Anzahl der auszuführenden Verschlüsselungen für die sequentielle, parallele und `javax` Implementierung in der jeweiligen `for`-Schleife angepasst werden. Es wird die Zeit gemessen für jede Verschlüsselung, und der Mittelwert wird berechnet und ausgegeben. Die verschlüsselten Dateien werden in `aes128ctr_1_testdateien_benchmark/1_encrypt` gespeichert.
 
 ### Ordner `aes128ctr_1_testdateien_benchmark`:
