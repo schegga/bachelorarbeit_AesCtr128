@@ -8,7 +8,7 @@ public class AesKey128 {
 
     
     /**
-     * Constructor that accepts a string
+     * Constructor that accepts a string-
      * @param keyString is the key as a string
      */
     public AesKey128(String keyString) {

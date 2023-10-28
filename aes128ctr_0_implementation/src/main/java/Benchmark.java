@@ -33,7 +33,7 @@ public class Benchmark {
                 (byte)0xAB, (byte)0xF7, (byte)0x15, (byte)0x88, (byte)0x09, (byte)0xCF, (byte)0x4F, (byte)0x3C
             };
             int[] nonce = {0xF0F1F2F3, 0xF4F5F6F7, 0xF8F9FAFB, 0xFCFDFEFF};
-
+            
             // Initialize AesKey128 for the own implementation to make sure the key is 128 bit long
             AesKey128 aesKey128 = new AesKey128(keyByte);
 

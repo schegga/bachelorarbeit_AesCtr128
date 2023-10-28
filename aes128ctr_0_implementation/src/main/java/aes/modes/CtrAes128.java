@@ -24,6 +24,10 @@ public class CtrAes128 {
      * @return The ciphertext
      */
     public byte[] ctrAes128EncryptionSequential(byte[] plaintext, AesKey128 aesKey128, int[] nonce) {
+        // nonce length must be 128 bit
+        if(nonce.length != 4){
+            throw new IllegalArgumentException("Nonce must be 128 bit long");
+        }
         // Calculate Expanded Keys
         int[] expandedKeys = aesBlockCipher.expandKey128(aesKey128.getKeyBytes());
         // Initialize ciphertext array where the result will be stored
@@ -43,6 +47,10 @@ public class CtrAes128 {
      * @return The ciphertext
      */
     public byte[] ctrAes128EncryptionParallel(byte[] plaintext, AesKey128 aesKey128, int[] nonce, int numThreads) {
+        // nonce length must be 128 bit
+        if(nonce.length != 4){
+            throw new IllegalArgumentException("Nonce must be 128 bit long");
+        }
         // Calculate Expanded Keys
         int[] expandedKeys = aesBlockCipher.expandKey128(aesKey128.getKeyBytes());
         // Initialize ciphertext array where the result will be stored
