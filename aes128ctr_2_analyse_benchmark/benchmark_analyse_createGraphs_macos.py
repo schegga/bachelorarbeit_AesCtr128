@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Daten einlesen
-data = pd.read_excel('benchmark_messdaten.xlsx')
+data = pd.read_excel('benchmark_messdaten_macos.xlsx')
 
 data = data.drop(columns=['Unnamed: 5'])
 data.columns = ['Test ID', 'Implementierung', 'Threadanzahl', 'Dateigröße', 'Verschlüsselungszeit']
@@ -17,7 +17,6 @@ data_seq_1000KB = data[(data['Implementierung'] == 'sequential') & (data['Dateig
 data_seq_10000KB = data[(data['Implementierung'] == 'sequential') & (data['Dateigröße'] == 10000)]
 data_seq_100000KB = data[(data['Implementierung'] == 'sequential') & (data['Dateigröße'] == 100000)]
 data_seq_1000000KB = data[(data['Implementierung'] == 'sequential') & (data['Dateigröße'] == 1000000)]
-data_seq_2000000KB = data[(data['Implementierung'] == 'sequential') & (data['Dateigröße'] == 2000000)]
 
 # sequential data mean
 data_seq_1KB_mean = data_seq_1KB['Verschlüsselungszeit'].mean()
@@ -27,7 +26,6 @@ data_seq_1000KB_mean = data_seq_1000KB['Verschlüsselungszeit'].mean()
 data_seq_10000KB_mean = data_seq_10000KB['Verschlüsselungszeit'].mean()
 data_seq_100000KB_mean = data_seq_100000KB['Verschlüsselungszeit'].mean()
 data_seq_1000000KB_mean = data_seq_1000000KB['Verschlüsselungszeit'].mean()
-data_seq_2000000KB_mean = data_seq_2000000KB['Verschlüsselungszeit'].mean()
 
 # ---------- javax data ----------
 data_javax_1KB = data[(data['Implementierung'] == 'javax') & (data['Dateigröße'] == 1)]
@@ -37,7 +35,6 @@ data_javax_1000KB = data[(data['Implementierung'] == 'javax') & (data['Dateigrö
 data_javax_10000KB = data[(data['Implementierung'] == 'javax') & (data['Dateigröße'] == 10000)]
 data_javax_100000KB = data[(data['Implementierung'] == 'javax') & (data['Dateigröße'] == 100000)]
 data_javax_1000000KB = data[(data['Implementierung'] == 'javax') & (data['Dateigröße'] == 1000000)]
-data_javax_2000000KB = data[(data['Implementierung'] == 'javax') & (data['Dateigröße'] == 2000000)]
 
 # javax data mean
 data_javax_1KB_mean = data_javax_1KB['Verschlüsselungszeit'].mean()
@@ -47,7 +44,6 @@ data_javax_1000KB_mean = data_javax_1000KB['Verschlüsselungszeit'].mean()
 data_javax_10000KB_mean = data_javax_10000KB['Verschlüsselungszeit'].mean()
 data_javax_100000KB_mean = data_javax_100000KB['Verschlüsselungszeit'].mean()
 data_javax_1000000KB_mean = data_javax_1000000KB['Verschlüsselungszeit'].mean()
-data_javax_2000000KB_mean = data_javax_2000000KB['Verschlüsselungszeit'].mean()
 
 # ---------- parallel data ----------
 # 1 Thread
@@ -58,7 +54,6 @@ data_par_1000KB_1T = data[(data['Implementierung'] == 'parallel') & (data['Datei
 data_par_10000KB_1T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 10000) & (data['Threadanzahl'] == 1)]
 data_par_100000KB_1T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 100000) & (data['Threadanzahl'] == 1)]
 data_par_1000000KB_1T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1000000) & (data['Threadanzahl'] == 1)]
-data_par_2000000KB_1T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 2000000) & (data['Threadanzahl'] == 1)]
 
 # 1 Thread mean
 data_par_1KB_1T_mean = data_par_1KB_1T['Verschlüsselungszeit'].mean()
@@ -68,7 +63,6 @@ data_par_1000KB_1T_mean = data_par_1000KB_1T['Verschlüsselungszeit'].mean()
 data_par_10000KB_1T_mean = data_par_10000KB_1T['Verschlüsselungszeit'].mean()
 data_par_100000KB_1T_mean = data_par_100000KB_1T['Verschlüsselungszeit'].mean()
 data_par_1000000KB_1T_mean = data_par_1000000KB_1T['Verschlüsselungszeit'].mean()
-data_par_2000000KB_1T_mean = data_par_2000000KB_1T['Verschlüsselungszeit'].mean()
 
 # 2 Threads
 data_par_1KB_2T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1) & (data['Threadanzahl'] == 2)]
@@ -78,7 +72,6 @@ data_par_1000KB_2T = data[(data['Implementierung'] == 'parallel') & (data['Datei
 data_par_10000KB_2T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 10000) & (data['Threadanzahl'] == 2)]
 data_par_100000KB_2T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 100000) & (data['Threadanzahl'] == 2)]
 data_par_1000000KB_2T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1000000) & (data['Threadanzahl'] == 2)]
-data_par_2000000KB_2T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 2000000) & (data['Threadanzahl'] == 2)]
 
 # 2 Threads mean
 data_par_1KB_2T_mean = data_par_1KB_2T['Verschlüsselungszeit'].mean()
@@ -88,7 +81,6 @@ data_par_1000KB_2T_mean = data_par_1000KB_2T['Verschlüsselungszeit'].mean()
 data_par_10000KB_2T_mean = data_par_10000KB_2T['Verschlüsselungszeit'].mean()
 data_par_100000KB_2T_mean = data_par_100000KB_2T['Verschlüsselungszeit'].mean()
 data_par_1000000KB_2T_mean = data_par_1000000KB_2T['Verschlüsselungszeit'].mean()
-data_par_2000000KB_2T_mean = data_par_2000000KB_2T['Verschlüsselungszeit'].mean()
 
 # 4 Threads
 data_par_1KB_4T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1) & (data['Threadanzahl'] == 4)]
@@ -98,7 +90,6 @@ data_par_1000KB_4T = data[(data['Implementierung'] == 'parallel') & (data['Datei
 data_par_10000KB_4T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 10000) & (data['Threadanzahl'] == 4)]
 data_par_100000KB_4T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 100000) & (data['Threadanzahl'] == 4)]
 data_par_1000000KB_4T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1000000) & (data['Threadanzahl'] == 4)]
-data_par_2000000KB_4T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 2000000) & (data['Threadanzahl'] == 4)]
 
 # 4 Threads mean
 data_par_1KB_4T_mean = data_par_1KB_4T['Verschlüsselungszeit'].mean()
@@ -108,7 +99,6 @@ data_par_1000KB_4T_mean = data_par_1000KB_4T['Verschlüsselungszeit'].mean()
 data_par_10000KB_4T_mean = data_par_10000KB_4T['Verschlüsselungszeit'].mean()
 data_par_100000KB_4T_mean = data_par_100000KB_4T['Verschlüsselungszeit'].mean()
 data_par_1000000KB_4T_mean = data_par_1000000KB_4T['Verschlüsselungszeit'].mean()
-data_par_2000000KB_4T_mean = data_par_2000000KB_4T['Verschlüsselungszeit'].mean()
 
 # 8 Threads
 data_par_1KB_8T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1) & (data['Threadanzahl'] == 8)]
@@ -118,7 +108,6 @@ data_par_1000KB_8T = data[(data['Implementierung'] == 'parallel') & (data['Datei
 data_par_10000KB_8T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 10000) & (data['Threadanzahl'] == 8)]
 data_par_100000KB_8T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 100000) & (data['Threadanzahl'] == 8)]
 data_par_1000000KB_8T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1000000) & (data['Threadanzahl'] == 8)]
-data_par_2000000KB_8T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 2000000) & (data['Threadanzahl'] == 8)]
 
 # 8 Threads mean
 data_par_1KB_8T_mean = data_par_1KB_8T['Verschlüsselungszeit'].mean()
@@ -128,7 +117,6 @@ data_par_1000KB_8T_mean = data_par_1000KB_8T['Verschlüsselungszeit'].mean()
 data_par_10000KB_8T_mean = data_par_10000KB_8T['Verschlüsselungszeit'].mean()
 data_par_100000KB_8T_mean = data_par_100000KB_8T['Verschlüsselungszeit'].mean()
 data_par_1000000KB_8T_mean = data_par_1000000KB_8T['Verschlüsselungszeit'].mean()
-data_par_2000000KB_8T_mean = data_par_2000000KB_8T['Verschlüsselungszeit'].mean()
 
 # 16 Threads
 data_par_1KB_16T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1) & (data['Threadanzahl'] == 16)]
@@ -138,7 +126,6 @@ data_par_1000KB_16T = data[(data['Implementierung'] == 'parallel') & (data['Date
 data_par_10000KB_16T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 10000) & (data['Threadanzahl'] == 16)]
 data_par_100000KB_16T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 100000) & (data['Threadanzahl'] == 16)]
 data_par_1000000KB_16T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1000000) & (data['Threadanzahl'] == 16)]
-data_par_2000000KB_16T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 2000000) & (data['Threadanzahl'] == 16)]
 
 # 16 Threads mean
 data_par_1KB_16T_mean = data_par_1KB_16T['Verschlüsselungszeit'].mean()
@@ -148,7 +135,6 @@ data_par_1000KB_16T_mean = data_par_1000KB_16T['Verschlüsselungszeit'].mean()
 data_par_10000KB_16T_mean = data_par_10000KB_16T['Verschlüsselungszeit'].mean()
 data_par_100000KB_16T_mean = data_par_100000KB_16T['Verschlüsselungszeit'].mean()
 data_par_1000000KB_16T_mean = data_par_1000000KB_16T['Verschlüsselungszeit'].mean()
-data_par_2000000KB_16T_mean = data_par_2000000KB_16T['Verschlüsselungszeit'].mean()
 
 # 32 Threads
 data_par_1KB_32T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1) & (data['Threadanzahl'] == 32)]
@@ -158,7 +144,6 @@ data_par_1000KB_32T = data[(data['Implementierung'] == 'parallel') & (data['Date
 data_par_10000KB_32T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 10000) & (data['Threadanzahl'] == 32)]
 data_par_100000KB_32T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 100000) & (data['Threadanzahl'] == 32)]
 data_par_1000000KB_32T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1000000) & (data['Threadanzahl'] == 32)]
-data_par_2000000KB_32T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 2000000) & (data['Threadanzahl'] == 32)]
 
 # 32 Threads mean
 data_par_1KB_32T_mean = data_par_1KB_32T['Verschlüsselungszeit'].mean()
@@ -168,7 +153,6 @@ data_par_1000KB_32T_mean = data_par_1000KB_32T['Verschlüsselungszeit'].mean()
 data_par_10000KB_32T_mean = data_par_10000KB_32T['Verschlüsselungszeit'].mean()
 data_par_100000KB_32T_mean = data_par_100000KB_32T['Verschlüsselungszeit'].mean()
 data_par_1000000KB_32T_mean = data_par_1000000KB_32T['Verschlüsselungszeit'].mean()
-data_par_2000000KB_32T_mean = data_par_2000000KB_32T['Verschlüsselungszeit'].mean()
 
 # 64 Threads
 data_par_1KB_64T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1) & (data['Threadanzahl'] == 64)]
@@ -178,7 +162,6 @@ data_par_1000KB_64T = data[(data['Implementierung'] == 'parallel') & (data['Date
 data_par_10000KB_64T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 10000) & (data['Threadanzahl'] == 64)]
 data_par_100000KB_64T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 100000) & (data['Threadanzahl'] == 64)]
 data_par_1000000KB_64T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1000000) & (data['Threadanzahl'] == 64)]
-data_par_2000000KB_64T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 2000000) & (data['Threadanzahl'] == 64)]
 
 # 64 Threads mean
 data_par_1KB_64T_mean = data_par_1KB_64T['Verschlüsselungszeit'].mean()
@@ -188,7 +171,6 @@ data_par_1000KB_64T_mean = data_par_1000KB_64T['Verschlüsselungszeit'].mean()
 data_par_10000KB_64T_mean = data_par_10000KB_64T['Verschlüsselungszeit'].mean()
 data_par_100000KB_64T_mean = data_par_100000KB_64T['Verschlüsselungszeit'].mean()
 data_par_1000000KB_64T_mean = data_par_1000000KB_64T['Verschlüsselungszeit'].mean()
-data_par_2000000KB_64T_mean = data_par_2000000KB_64T['Verschlüsselungszeit'].mean()
 
 # 128 Threads
 data_par_1KB_128T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1) & (data['Threadanzahl'] == 128)]
@@ -198,7 +180,6 @@ data_par_1000KB_128T = data[(data['Implementierung'] == 'parallel') & (data['Dat
 data_par_10000KB_128T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 10000) & (data['Threadanzahl'] == 128)]
 data_par_100000KB_128T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 100000) & (data['Threadanzahl'] == 128)]
 data_par_1000000KB_128T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 1000000) & (data['Threadanzahl'] == 128)]
-data_par_2000000KB_128T = data[(data['Implementierung'] == 'parallel') & (data['Dateigröße'] == 2000000) & (data['Threadanzahl'] == 128)]
 
 # 128 Threads mean
 data_par_1KB_128T_mean = data_par_1KB_128T['Verschlüsselungszeit'].mean()
@@ -208,7 +189,6 @@ data_par_1000KB_128T_mean = data_par_1000KB_128T['Verschlüsselungszeit'].mean()
 data_par_10000KB_128T_mean = data_par_10000KB_128T['Verschlüsselungszeit'].mean()
 data_par_100000KB_128T_mean = data_par_100000KB_128T['Verschlüsselungszeit'].mean()
 data_par_1000000KB_128T_mean = data_par_1000000KB_128T['Verschlüsselungszeit'].mean()
-data_par_2000000KB_128T_mean = data_par_2000000KB_128T['Verschlüsselungszeit'].mean()
 
 # ---------- Graphs ----------
 fontsize_title = 20
@@ -278,7 +258,7 @@ plt.legend()
 plt.grid(True)
 
 # Graph als svg speichern
-path_to_save = 'graphen/0_overall_vergleich_logarithmisch.svg'
+path_to_save = 'graphen/macos/0_overall_vergleich_logarithmisch.svg'
 plt.savefig(path_to_save)
 
 # ---------- parallel vergeleich ----------
@@ -308,7 +288,7 @@ plt.legend()
 plt.grid(True)
 
 # Graph als svg speichern
-path_to_save = 'graphen/1_parallel_vergleich_logarithmisch.svg'
+path_to_save = 'graphen/macos/1_parallel_vergleich_logarithmisch.svg'
 plt.savefig(path_to_save)
 
 # ---------- 1KB vergleich ----------
@@ -345,7 +325,7 @@ plt.tight_layout()
 plt.grid(axis='y')
 
 # Diagramm als svg speichern
-path_to_save_bar = 'graphen/1KB_balkendiagramm.svg'
+path_to_save_bar = 'graphen/macos/1KB_balkendiagramm.svg'
 plt.savefig(path_to_save_bar)
 
 # ---------- 10KB vergleich ----------
@@ -379,7 +359,7 @@ plt.tight_layout()
 plt.grid(axis='y')
 
 # Diagramm als svg speichern
-path_to_save_bar = 'graphen/10KB_balkendiagramm.svg'
+path_to_save_bar = 'graphen/macos/10KB_balkendiagramm.svg'
 plt.savefig(path_to_save_bar)
 
 # ---------- 100KB vergleich ----------
@@ -413,7 +393,7 @@ plt.tight_layout()
 plt.grid(axis='y')
 
 # Diagramm als svg speichern
-path_to_save_bar = 'graphen/100KB_balkendiagramm.svg'
+path_to_save_bar = 'graphen/macos/100KB_balkendiagramm.svg'
 plt.savefig(path_to_save_bar)
 
 # ---------- 1000KB vergleich ----------
@@ -447,7 +427,7 @@ plt.tight_layout()
 plt.grid(axis='y')
 
 # Diagramm als svg speichern
-path_to_save_bar = 'graphen/1000KB_balkendiagramm.svg'
+path_to_save_bar = 'graphen/macos/1000KB_balkendiagramm.svg'
 plt.savefig(path_to_save_bar)
 
 # ---------- 10000KB vergleich ----------
@@ -481,7 +461,7 @@ plt.tight_layout()
 plt.grid(axis='y')
 
 # Diagramm als svg speichern
-path_to_save_bar = 'graphen/10000KB_balkendiagramm.svg'
+path_to_save_bar = 'graphen/macos/10000KB_balkendiagramm.svg'
 plt.savefig(path_to_save_bar)
 
 # ---------- 100000KB vergleich ----------
@@ -515,7 +495,7 @@ plt.tight_layout()
 plt.grid(axis='y')
 
 # Diagramm als svg speichern
-path_to_save_bar = 'graphen/100000KB_balkendiagramm.svg'
+path_to_save_bar = 'graphen/macos/100000KB_balkendiagramm.svg'
 plt.savefig(path_to_save_bar)
 
 # ---------- 1000000KB vergleich ----------
@@ -549,10 +529,10 @@ plt.tight_layout()
 plt.grid(axis='y')
 
 # Diagramm als svg speichern
-path_to_save_bar = 'graphen/1000000KB_balkendiagramm.svg'
+path_to_save_bar = 'graphen/macos/1000000KB_balkendiagramm.svg'
 plt.savefig(path_to_save_bar)
 
-# ---------- 7 graphen nebeneinander vergleich ----------
+# ---------- 7 graphen/macos nebeneinander vergleich ----------
 # Erstellen Sie ein Figure-Objekt mit 4 Zeilen und 2 Spalten
 fig, axes = plt.subplots(nrows=4, ncols=2, figsize=(16, 24))
 
@@ -599,7 +579,7 @@ axes[-1, -1].axis('off')  # Schaltet Achsen und Ticks aus
 plt.tight_layout()
 
 # Speichern der Diagramme als eine SVG-Datei
-path_to_save_bar = 'graphen/combined_balkendiagramm.svg'
+path_to_save_bar = 'graphen/macos/combined_balkendiagramm.svg'
 plt.savefig(path_to_save_bar)
 
 # Diagramm anzeigen
