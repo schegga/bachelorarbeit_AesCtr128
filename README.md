@@ -1,6 +1,6 @@
 # bachelorarbeit_AesCtr128
 
-## Bachelorarbeit: Implementierung und Analyse des AES-CTR-128 Verfahrens
+## Bachelorarbeit: Implementierung und Analyse des AES-CTR-128 Verfahrens in Java
 
 ### Ordner `aes128ctr_0_implementation`:
 Für die Implemetation wurde das Build-Tool Gradle verwendet. Es muss eine Java-Version am ausführenden System installiert sein. Es wird zur Ausführung die Java-Version verwendet, auf welche die JAVA_HOME Variable des ausführenden Systems zeigt.
