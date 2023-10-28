@@ -32,7 +32,7 @@ Alle Tests können mit `./gradlew test`(unix) oder `gradle test`(windows) ausgef
 ### Ordner `aes128ctr_1_testdateien_benchmark`:
 
 - Dient zur Ablage der Input-Dateien und zur Ablage der verschlüsselten Dateien der Klasse `Benchmark.java`.
-- Innerhalb `input_0` befindet sich eine `generate_files.sh`, welche genutzt werden kann, um Input-Dateien des `.txt`-Formats zu erzeugen. Diese können dann auch in `Benchmark.java` getestet werden.
+- Innerhalb `input_0` befindet sich eine `generate_files.sh`, welche genutzt werden kann, um Input-Dateien des `.txt`-Formats zu erzeugen. Diese können dann auch in `Benchmark.java` getestet werden. Dateien von 1KB bis 10.000KB sind bereits standardmäßig vorhanden um direkt testetn zu können. Größere Dateien müsssen mit `generate_files.sh` erzeugt werden.
 
 ### Ordner `aes128ctr_2_analyse_benchmark`:
 
