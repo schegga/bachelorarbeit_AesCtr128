@@ -37,6 +37,6 @@ Alle Tests können mit `./gradlew test`(unix) oder `gradle test`(windows) ausgef
 ### Ordner `aes128ctr_2_analyse_benchmark`:
 
 - Hier sind die Messwerte die für die Bachelorarbeit genommen wurden für den Vergleich der unterschiedlichen Implementierungen. Die Klasse `Benchmark.java` wurde hierfür verwendet um die Messwerte zu erzeugen.
-- Es wurden sieben Dateien verwendet. Diese Dateien hatten die Größen 1 KB, 10 KB, 100 KB, 1.000 KB, 10.000 KB, 100.000 KB und 1.000.000 KB.
-- Die Messwerte wurden in `benchmark_messdaten.xlsx` festgehalten.
-- Mittels des Python-Skripts `benchmark_analyse_createGraphs.py` können die Messwerte in `benchmark_messdaten.xlsx` ausgelesen werden und in Graphen dargestellt werden. Die Graphen werden in `benchmark_analyse_graphs/` gespeichert. Die Graphen wurden in der Bachelorarbeit verwendet, um die Implementierung zu analysieren.
+- Es wurden sieben Dateien verwendet. Diese Dateien hatten die Größen 1 KB, 10 KB, 100 KB, 1.000 KB, 10.000 KB, 100.000 KB und 1.000.000 KB. Es wurde auf 2 Systemen getestet. Einerseits auf einer Apple M1 Pro CPU mit macOS Sonoma 14.0 und andererseits auf einem AMD Ryzen 5 4600H Prozessor unter dem Betriebssystem Microsoft Windows 11 Home.
+- Die Messwerte wurden in `benchmark_messdaten_macos.xlsx` und `benchmark_messdaten_windows.xlsx` festgehalten.
+- Mittels der beiden Python-Skripts `benchmark_analyse_createGraphs_macos.py` und `benchmark_analyse_createGraphs_windows.py`können die Graphen zu den Messwerten erstellt werden. Die Graphen werden in `benchmark_analyse_graphs/` gespeichert. Die Graphen wurden in der Bachelorarbeit verwendet, um die Implementierung zu analysieren.

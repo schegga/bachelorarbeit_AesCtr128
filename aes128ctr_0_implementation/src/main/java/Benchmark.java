@@ -120,7 +120,7 @@ public class Benchmark {
             e.printStackTrace();
         }
         String javaVersion = System.getProperty("java.version");
-        System.out.println("\nused java-version for this application: " + javaVersion);
+        System.out.println("\nJava-version for this application: " + javaVersion);
 
         System.out.println("\nBenchmark-End" );
         
