@@ -4,8 +4,7 @@
 
 ### Ordner `aes128ctr_0_implementation`:
 Für die Implemetation wurde das Build-Tool Gradle verwendet. Es muss eine Java-Version am ausführenden System installiert sein. Es wird zur Ausführung die Java-Version verwendet, auf welche die JAVA_HOME Variable des ausführenden Systems zeigt.
-Nachdem klonen des Repos gradle builden: Dazu das Terminal im Ordner `aes128ctr_0_implementation` öffnen und `./gradlew build`(unix) oder `gradle build`(windows) ausführen.
-- **AesBlockCipher.java**: 
+Nachdem klonen des Repos gradle builden: Dazu das Terminal im Ordner `aes128ctr_0_implementation` öffnen und `./gradlew build`(unix) oder `gradle build`(windows) ausführen. Unter `aes128ctr_0_implementation/src/main/java/aes` befinden sich die folgenden Hauptklassen zur Realisierung des AES-CTR-128 Verfahrens:
   - Führt die Verschlüsselung eines 16 Byte großen Input-Blocks durch.
   - Generiert Rundenschlüssel mittels `public int[] expandKey128(byte[] key)`.
   - Führt die eigentliche Verschlüsselung eines 16 Byte Inputs mittels `public byte[] blockEncryption128(int[] input, int[] roundKeys)` aus.
